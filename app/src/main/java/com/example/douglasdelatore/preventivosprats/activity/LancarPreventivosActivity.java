@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.douglasdelatore.preventivosprats.R;
+import com.example.douglasdelatore.preventivosprats.helper.UsuarioFirebase;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,6 +49,14 @@ public class LancarPreventivosActivity extends AppCompatActivity {
 
         String data_completa = dateFormat.format(data_atual);
         campoDataEHora.setText(data_completa);
+
+        //Recuperar dados do usuário
+        FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
+        String verificaPerfil = usuarioPerfil.getDisplayName().toUpperCase();
+        campoUsuario.setText(verificaPerfil);
+
+        campoProcedimento.setEnabled(false);
+        campoNumeroOS.requestFocus();
 
     }
 }
