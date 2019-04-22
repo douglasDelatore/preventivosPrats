@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "489003995520",
+    "firebase_url": "https://preventivos-6a01d.firebaseio.com",
+    "project_id": "preventivos-6a01d",
+    "storage_bucket": "preventivos-6a01d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489003995520:android:fdd68cfcd3be5c23",
+        "android_client_info": {
+          "package_name": "com.example.douglasdelatore.preventivosprats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489003995520-mfbgrke7s31mgot45lj9snckkhg88kmn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.douglasdelatore.preventivosprats",
+            "certificate_hash": "d7f744bbf62fa41c5f3812a7136a8349176cd34a"
+          }
+        },
+        {
+          "client_id": "489003995520-s3k8k6eh2eh1f3jqp06iltv35k8q7ng2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkRvF8xmAgZu6rSnhs9NL-DLDPaIalciM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489003995520-s3k8k6eh2eh1f3jqp06iltv35k8q7ng2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
