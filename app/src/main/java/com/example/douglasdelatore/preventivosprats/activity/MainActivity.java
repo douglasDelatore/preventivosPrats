@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         botaoCadastrarPreventivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadastroPreventivos.class);
+                Intent intent = new Intent(MainActivity.this, CadastroPreventivosActivity.class);
                 startActivity(intent);
             }
         });
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoPerfil.setText(verificaPerfil);
 
-        if (campoPerfil.equals("RAFAEL")) {
+        if (!verificaPerfil.equals("ADMINISTRATIVO")) {
             botaoRelatorio.setVisibility(View.GONE);
             botaoCadastrarUsuario.setVisibility(View.GONE);
             botaoCadastrarPreventivos.setVisibility(View.GONE);

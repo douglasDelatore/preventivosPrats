@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".activity.CadastroPreventivosActivity">
 
     <TextView
@@ -65,7 +66,8 @@
     <Spinner
         android:id="@+id/spinnerNivelCadPrev"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/editTextProcSheetCadPrev"
@@ -79,5 +81,6 @@
         android:id="@+id/buttonSalvarCadPrev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
         android:text="Salvar" />
 </LinearLayout>
