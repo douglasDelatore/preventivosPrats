@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         //configuracoes de objetos
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
 
+        //Botao que abre a tela para lançar preventivos
         botaoLancarPreventivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Botao que lista preventivos
         botaoListarPreventivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Botao que abre a pagina de relatorios (visivel apenas para adms)
         botaoRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Botao para cadastrar usuarios (visivel apenas para adms)
         botaoCadastrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Botao para cadastrar um novo preventivo (visivel apenas para adms)
         botaoCadastrarPreventivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Deslogar Usuário
+        //Configura o botao sair
         botaoSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Metodo para deslogar usuários
     public void deslogarUsuario(){
         try{
             autenticacao.signOut();
@@ -111,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         if (campoPerfil.equals("RAFAEL")) {
             botaoRelatorio.setVisibility(View.GONE);
             botaoCadastrarUsuario.setVisibility(View.GONE);
+            botaoCadastrarPreventivos.setVisibility(View.GONE);
         }
     }
 }

@@ -100,11 +100,8 @@ public class CadastroActivity extends AppCompatActivity {
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if( task.isSuccessful() ){
-
                             try {
-
                                 progressBar.setVisibility(View.GONE);
 
                                 //Salvar dados no firebase
@@ -126,13 +123,9 @@ public class CadastroActivity extends AppCompatActivity {
                             }catch (Exception e){
                                 e.printStackTrace();
                             }
-
-
-
                         }else {
 
                             progressBar.setVisibility( View.GONE );
-
                             String erroExcecao = "";
                             try{
                                 throw task.getException();
@@ -146,11 +139,9 @@ public class CadastroActivity extends AppCompatActivity {
                                 erroExcecao = "ao cadastrar usuário: "  + e.getMessage();
                                 e.printStackTrace();
                             }
-
                             Toast.makeText(CadastroActivity.this,
                                     "Erro: " + erroExcecao ,
                                     Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 }

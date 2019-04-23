@@ -1,13 +1,18 @@
 package com.example.douglasdelatore.preventivosprats.model;
 
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
+import com.example.douglasdelatore.preventivosprats.helper.UsuarioFirebase;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CadastroPreventivos implements Serializable {
 
     private String id;
+    private String idUsuario;
     private String codigo;
     private String componente;
     private String operacao;
@@ -17,9 +22,6 @@ public class CadastroPreventivos implements Serializable {
     private String procSheet;
 
     public CadastroPreventivos() {
-    }
-
-    public void salvar(){
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
         DatabaseReference cadastroPreventivosRef = firebaseRef.child("preventivosFixos");
         String idPreventivoCadastro = cadastroPreventivosRef.push().getKey();
@@ -88,5 +90,13 @@ public class CadastroPreventivos implements Serializable {
 
     public void setProcSheet(String procSheet) {
         this.procSheet = procSheet;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

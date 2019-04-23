@@ -60,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+    //Validação de login passando o usuario como parametro
     public void validarLogin( Usuario usuario ){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.signInWithEmailAndPassword(
@@ -81,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //Aqui verifica se já tem algum usuario logado
     public void verificarUsuarioLogado(){
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         if( autenticacao.getCurrentUser() != null ){
