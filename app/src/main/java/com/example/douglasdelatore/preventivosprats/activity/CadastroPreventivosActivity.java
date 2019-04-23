@@ -36,7 +36,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
 
         iniciarComponentes();
 
-
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +46,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String horas        = campoHoras.getText().toString();
                 String nivel        = campoNivel.getSelectedItem().toString();
                 String procSheet    = campoProcSheet.getText().toString();
-
 
                 if (!id.isEmpty()) {
                     if (!componente.isEmpty()) {
@@ -89,8 +87,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     }
 
     public void salvarNovoPreventivo(CadastroPreventivos cadastroPreventivos){
-        databaseReference = ConfiguracaoFirebase.getFirebase();
-        databaseReference.child("preventivosNovos").child("preventivosFixos").child("id");
+        databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child(cadastroPreventivos.getId());
         databaseReference.setValue(cadastroPreventivos).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
