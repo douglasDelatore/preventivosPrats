@@ -10,8 +10,10 @@ import android.widget.Spinner;
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CadastroPreventivosActivity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     private Button botaoSalvar;
 
     private CadastroPreventivos cadastroPreventivos;
+    private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
     @Override
@@ -59,8 +62,11 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     }
 
     public void cadastrarPreventivos(final CadastroPreventivos cadastroPreventivos){
+        FirebaseApp.initializeApp(getApplicationContext());
         databaseReference = ConfiguracaoFirebase.getFirebase();
-        databaseReference.child("preventivos");
+        databaseReference.child("preventivos").child("sidel");
+
+
 
     }
 

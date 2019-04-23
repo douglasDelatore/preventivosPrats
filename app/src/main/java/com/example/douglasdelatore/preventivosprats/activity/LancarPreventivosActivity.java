@@ -19,6 +19,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
     private EditText campoProcedimento, campoObs, campoNumeroOS;
     private TextView campoTarefa, campoDataEHora, campoUsuario;
     private Button botaoLancar;
+    private String idUsuarioLogado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         //Recuperar dados do usuário
         FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
         String verificaPerfil = usuarioPerfil.getDisplayName().toUpperCase();
+        idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
         campoUsuario.setText(verificaPerfil);
 
         campoProcedimento.setEnabled(false);
