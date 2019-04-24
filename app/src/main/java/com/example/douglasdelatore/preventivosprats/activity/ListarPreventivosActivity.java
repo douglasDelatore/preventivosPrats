@@ -28,34 +28,9 @@ public class ListarPreventivosActivity extends AppCompatActivity {
 
         iniciarComponentes();
 
-        databaseReference = ConfiguracaoFirebase.getFirebase();
-        databaseReference.child("PreventivoFixo");
-        databaseReference.getDatabase();
-
-        recyclerViewPreventivos.setAdapter(new RecyclerView.Adapter() {
-            @NonNull
-            @Override
-            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
-
-                return null;
-            }
-
-            @Override
-            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
-            }
-
-            @Override
-            public int getItemCount() {
-                return 0;
-            }
-        });
     }
 
     public void iniciarComponentes(){
         recyclerViewPreventivos = findViewById(R.id.recyclerViewListaPreventivos);
-
-
     }
 }

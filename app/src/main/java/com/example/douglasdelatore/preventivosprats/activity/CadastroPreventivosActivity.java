@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
+import com.example.douglasdelatore.preventivosprats.helper.RecyclerItemClickListener;
 import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,12 +24,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CadastroPreventivosActivity extends AppCompatActivity {
 
-    private EditText campoId, campoComponente, campoOperacao, campoPeriodo, campoHoras, campoProcSheet;
-    private Spinner campoNivel;
+    private EditText campoId, campoComponente, campoOperacao, campoHoras, campoProcSheet;
+    private Spinner campoNivel, campoPeriodo;
     private Button botaoSalvar;
     private String idUsuarioLogado;
     private ProgressBar progressBarCadastroPreventivos;
     private String[] items = new String[] {"1", "2", "3"};
+    private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
     private DatabaseReference databaseReference;
 
 
@@ -46,7 +49,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String id           = campoId.getText().toString();
                 String componente   = campoComponente.getText().toString();
                 String operacao     = campoOperacao.getText().toString();
-                String periodo      = campoPeriodo.getText().toString();
+                String periodo      = campoPeriodo.getSelectedItem().toString();
                 String horas        = campoHoras.getText().toString();
                 String nivel        = campoNivel.getSelectedItem().toString();
                 String procSheet    = campoProcSheet.getText().toString();
@@ -111,7 +114,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
         campoId                         = findViewById(R.id.editTextCodigoCadPrev);
         campoComponente                 = findViewById(R.id.editTextComponenteCadPrev);
         campoOperacao                   = findViewById(R.id.editTextOperacaoCadPrev);
-        campoPeriodo                    = findViewById(R.id.editTextPeriodoCadPrev);
+        campoPeriodo                    = findViewById(R.id.spinnerCadastroPeriodo);
         campoHoras                      = findViewById(R.id.editTextHorasCadPrev);
         campoNivel                      = findViewById(R.id.spinnerNivelCadPrev);
         campoProcSheet                  = findViewById(R.id.editTextProcSheetCadPrev);
@@ -123,5 +126,63 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoNivel.setAdapter(adapter);
+
+        ArrayAdapter<String> adapterPeriodo = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, periodo);
+        adapterPeriodo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        campoPeriodo.setAdapter(adapterPeriodo);
+
+        campoHoras.setEnabled(false);
+
+        campoPeriodo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (campoPeriodo.getSelectedItemPosition()) {
+                    case 0:
+                        campoHoras.setText("24");//Diario
+                        break;
+                    case 1:
+                        campoHoras.setText("125"); //Semanal
+                        break;
+                    case 2:
+                        campoHoras.setText("500"); //Mensal
+                        break;
+                    case 3:
+                        campoHoras.setText("1000"); //Bimestral
+                        break;
+                    case 4:
+                        campoHoras.setText("1500"); //Trimestral
+                        break;
+                    case 5:
+                        campoHoras.setText("3000"); //Semestral
+                        break;
+                    case 6:
+                        campoHoras.setText("6000"); //Anual
+                        break;
+                    case 7:
+                        campoHoras.setText("12000"); //Dois Anos
+                        break;
+                    case 8:
+                        campoHoras.setText("18000"); //Tres Anos
+                        break;
+                    case 9:
+                        campoHoras.setText("24000"); //Quatro Anos
+                        break;
+                    case 10:
+                        campoHoras.setText("0"); //Condicional
+                        break;
+                    default:
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
     }
 }

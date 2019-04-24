@@ -41,13 +41,17 @@
         android:hint="Operação"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/editTextPeriodoCadPrev"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Período"
-        android:inputType="textPersonName" />
+        android:text="Período" />
+
+    <Spinner
+        android:id="@+id/spinnerCadastroPeriodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp" />
 
     <EditText
         android:id="@+id/editTextHorasCadPrev"
