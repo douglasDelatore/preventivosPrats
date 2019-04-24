@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.example.douglasdelatore.preventivosprats.helper.UsuarioFirebase;
-import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
-import com.example.douglasdelatore.preventivosprats.model.Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 public class MainActivity extends AppCompatActivity {
 
     private Button botaoLancarPreventivo, botaoListarPreventivo, botaoRelatorio, botaoCadastrarUsuario, botaoSair, botaoCadastrarPreventivos;
-    private TextView campoPerfil;
+    private TextView campoPerfil, campoNomeUsuario;
     private FirebaseAuth autenticacao;
     private String idUsuarioLogado;
 
@@ -107,11 +105,14 @@ public class MainActivity extends AppCompatActivity {
         botaoCadastrarPreventivos   = findViewById(R.id.buttonCadastrarPreventivos);
         botaoSair                   = findViewById(R.id.buttonSair);
         campoPerfil                 = findViewById(R.id.textViewPerfil);
+        campoNomeUsuario            = findViewById(R.id.textViewNome);
 
         //Recuperar dados do usuário
         FirebaseUser usuarioPerfil  = UsuarioFirebase.getUsuarioAtual();
         String verificaPerfil       = usuarioPerfil.getDisplayName().toUpperCase();
+        String verificaNome         = usuarioPerfil.getDisplayName().toUpperCase();
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
+        campoNomeUsuario.setText(verificaNome);
         campoPerfil.setText(verificaPerfil);
 
         if (!verificaPerfil.equals("ADMINISTRATIVO")) {

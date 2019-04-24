@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.douglasdelatore.preventivosprats.R;
@@ -25,6 +26,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     private Spinner campoNivel;
     private Button botaoSalvar;
     private String idUsuarioLogado;
+    private ProgressBar progressBarCadastroPreventivos;
     private String[] items = new String[] {"1", "2", "3"};
     private DatabaseReference databaseReference;
 
@@ -39,6 +41,8 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressBarCadastroPreventivos.setVisibility(View.VISIBLE);
                 String id           = campoId.getText().toString();
                 String componente   = campoComponente.getText().toString();
                 String operacao     = campoOperacao.getText().toString();
@@ -62,6 +66,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                                         cadastroPreventivos.setHoras(horas);
                                         cadastroPreventivos.setProcSheet(procSheet);
                                         cadastroPreventivos.setNivel(nivel);
+
                                         salvarNovoPreventivo(cadastroPreventivos);
 
                                     } else {
@@ -92,6 +97,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if( task.isSuccessful() ){
+                    progressBarCadastroPreventivos.setVisibility(View.GONE);
                     Toast.makeText(CadastroPreventivosActivity.this, "Preventivo cadastrado com sucesso", Toast.LENGTH_LONG).show();
                     startActivity( new Intent(getApplicationContext(), MainActivity.class));
                     finish();
@@ -102,14 +108,16 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     }
 
     public void iniciarComponentes(){
-        campoId         = findViewById(R.id.editTextCodigoCadPrev);
-        campoComponente = findViewById(R.id.editTextComponenteCadPrev);
-        campoOperacao   = findViewById(R.id.editTextOperacaoCadPrev);
-        campoPeriodo    = findViewById(R.id.editTextPeriodoCadPrev);
-        campoHoras      = findViewById(R.id.editTextHorasCadPrev);
-        campoNivel      = findViewById(R.id.spinnerNivelCadPrev);
-        campoProcSheet  = findViewById(R.id.editTextProcSheetCadPrev);
-        botaoSalvar     = findViewById(R.id.buttonSalvarCadPrev);
+        campoId                         = findViewById(R.id.editTextCodigoCadPrev);
+        campoComponente                 = findViewById(R.id.editTextComponenteCadPrev);
+        campoOperacao                   = findViewById(R.id.editTextOperacaoCadPrev);
+        campoPeriodo                    = findViewById(R.id.editTextPeriodoCadPrev);
+        campoHoras                      = findViewById(R.id.editTextHorasCadPrev);
+        campoNivel                      = findViewById(R.id.spinnerNivelCadPrev);
+        campoProcSheet                  = findViewById(R.id.editTextProcSheetCadPrev);
+        botaoSalvar                     = findViewById(R.id.buttonSalvarCadPrev);
+        progressBarCadastroPreventivos  = findViewById(R.id.progressBarCadastroPreventivos);
+        progressBarCadastroPreventivos.setVisibility(View.GONE);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, items);

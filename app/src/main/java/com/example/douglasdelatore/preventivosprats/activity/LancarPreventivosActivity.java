@@ -17,7 +17,7 @@ import java.util.Date;
 public class LancarPreventivosActivity extends AppCompatActivity {
 
     private EditText campoProcedimento, campoObs, campoNumeroOS;
-    private TextView campoTarefa, campoDataEHora, campoUsuario;
+    private TextView campoTarefa, campoDataEHora, campoUsuario, campoPerfil;
     private Button botaoLancar;
     private String idUsuarioLogado;
 
@@ -37,6 +37,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoTarefa         = findViewById(R.id.textViewTarefa);
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
         campoUsuario        = findViewById(R.id.textViewUsuarioLogado);
+        campoPerfil         = findViewById(R.id.textViewPerfil);
         botaoLancar         = findViewById(R.id.buttonLancar);
 
 
@@ -53,9 +54,11 @@ public class LancarPreventivosActivity extends AppCompatActivity {
 
         //Recuperar dados do usuário
         FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
-        String verificaPerfil = usuarioPerfil.getDisplayName().toUpperCase();
-        idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
-        campoUsuario.setText(verificaPerfil);
+        String verificaPerfil = usuarioPerfil.getPhoneNumber().toUpperCase();
+        String verificaNome =  usuarioPerfil.getDisplayName();
+        //idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
+        campoUsuario.setText(verificaNome);
+        campoPerfil.setText("teste");
 
         campoProcedimento.setEnabled(false);
         campoNumeroOS.requestFocus();

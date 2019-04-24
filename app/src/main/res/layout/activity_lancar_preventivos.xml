@@ -12,12 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="28dp"
         android:text="Lançar Preventivos"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,15 +30,15 @@
         android:text="Lançar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsuarioLogado" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewUsuarioLogado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="8dp"
         android:text="Usuário"
         app:layout_constraintBottom_toTopOf="@+id/buttonLancar"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginTop="25dp"
         android:text="Data e Hora"
-        app:layout_constraintBottom_toTopOf="@+id/textViewUsuarioLogado"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextObs" />
 
@@ -62,12 +59,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="26dp"
         android:ems="10"
         android:hint="Obs.:"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDataEHora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumeroOS" />
@@ -76,30 +72,27 @@
         android:id="@+id/textViewTarefa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="18dp"
         android:layout_marginBottom="9dp"
         android:text="Tarefa:"
         app:layout_constraintBottom_toTopOf="@+id/editTextProcedimento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextProcedimento"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="169dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="84dp"
         android:ems="10"
         android:hint="Procedimento:"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumeroOS"
+        app:layout_constraintBottom_toTopOf="@+id/editTextObs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTarefa" />
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
         android:id="@+id/editTextNumeroOS"
@@ -107,13 +100,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="234dp"
         android:ems="10"
         android:hint="Número O.S.:"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextObs"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextProcedimento" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="21dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLancar"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

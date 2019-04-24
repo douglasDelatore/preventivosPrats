@@ -60,6 +60,7 @@ public class UsuarioFirebase {
         usuario.setEmail( firebaseUser.getEmail() );
         usuario.setNome( firebaseUser.getDisplayName() );
         usuario.setId( firebaseUser.getUid() );
+        usuario.setPerfil(firebaseUser.getPhoneNumber());
 
 
         return usuario;
