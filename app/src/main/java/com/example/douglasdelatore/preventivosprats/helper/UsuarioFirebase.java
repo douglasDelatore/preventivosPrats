@@ -51,7 +51,6 @@ public class UsuarioFirebase {
 
     }
 
-
     public static Usuario getDadosUsuarioLogado(){
 
         FirebaseUser firebaseUser = getUsuarioAtual();

@@ -14,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
-import com.example.douglasdelatore.preventivosprats.helper.RecyclerItemClickListener;
 import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -139,7 +138,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (campoPeriodo.getSelectedItemPosition()) {
                     case 0:
-                        campoHoras.setText("24");//Diario
+                         campoHoras.setText("24"); //Diario
                         break;
                     case 1:
                         campoHoras.setText("125"); //Semanal
@@ -171,8 +170,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                     case 10:
                         campoHoras.setText("0"); //Condicional
                         break;
-                    default:
-
                 }
             }
 
@@ -181,8 +178,5 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }

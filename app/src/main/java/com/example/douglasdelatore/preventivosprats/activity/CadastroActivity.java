@@ -112,7 +112,6 @@ public class CadastroActivity extends AppCompatActivity {
 
                                 //Salvar dados no profile do Firebase
                                 UsuarioFirebase.atualizarNomeUsuario( usuario.getNome() );
-                                UsuarioFirebase.atualizarNomeUsuario( usuario.getPerfil() );
 
                                 Toast.makeText(CadastroActivity.this,
                                         "Cadastro com sucesso",
