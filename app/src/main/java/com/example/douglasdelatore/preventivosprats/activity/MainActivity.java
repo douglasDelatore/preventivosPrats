@@ -109,13 +109,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Recuperar dados do usuário
         FirebaseUser usuarioPerfil  = UsuarioFirebase.getUsuarioAtual();
-        String verificaPerfil       = usuarioPerfil.getDisplayName().toUpperCase();
         String verificaNome         = usuarioPerfil.getDisplayName().toUpperCase();
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
-        campoPerfil.setText(verificaPerfil);
 
-        if (!verificaPerfil.equals("ADMINISTRATIVO")) {
+        if (verificaNome.equals("IAGO") || verificaNome.equals("RAFAEL") || verificaNome.equals("DOUGLAS")) {
             botaoRelatorio.setVisibility(View.GONE);
             botaoCadastrarUsuario.setVisibility(View.GONE);
             botaoCadastrarPreventivos.setVisibility(View.GONE);

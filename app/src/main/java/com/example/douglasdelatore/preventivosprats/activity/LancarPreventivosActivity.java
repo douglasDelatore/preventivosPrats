@@ -36,7 +36,6 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoNumeroOS       = findViewById(R.id.editTextNumeroOS);
         campoTarefa         = findViewById(R.id.textViewTarefa);
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
-        campoUsuario        = findViewById(R.id.textViewUsuarioLogado);
         campoPerfil         = findViewById(R.id.textViewPerfil);
         botaoLancar         = findViewById(R.id.buttonLancar);
 

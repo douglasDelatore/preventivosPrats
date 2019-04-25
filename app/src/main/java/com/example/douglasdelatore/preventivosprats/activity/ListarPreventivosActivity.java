@@ -1,15 +1,10 @@
 package com.example.douglasdelatore.preventivosprats.activity;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
 
 import com.example.douglasdelatore.preventivosprats.R;
-import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
-import com.example.douglasdelatore.preventivosprats.model.Preventivo;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;

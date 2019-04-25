@@ -72,21 +72,27 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                                         salvarNovoPreventivo(cadastroPreventivos);
 
                                     } else {
+                                        progressBarCadastroPreventivos.setVisibility(View.GONE);
                                         Toast.makeText(CadastroPreventivosActivity.this, "Preencha o ProcSheet", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
+                                    progressBarCadastroPreventivos.setVisibility(View.GONE);
                                     Toast.makeText(CadastroPreventivosActivity.this, "Preencha as horas", Toast.LENGTH_LONG).show();
                                 }
                             } else {
+                                progressBarCadastroPreventivos.setVisibility(View.GONE);
                                 Toast.makeText(CadastroPreventivosActivity.this, "Preencha o período", Toast.LENGTH_LONG).show();
                             }
                         } else {
+                            progressBarCadastroPreventivos.setVisibility(View.GONE);
                             Toast.makeText(CadastroPreventivosActivity.this, "Preencha a operação", Toast.LENGTH_LONG).show();
                         }
                     } else {
+                        progressBarCadastroPreventivos.setVisibility(View.GONE);
                         Toast.makeText(CadastroPreventivosActivity.this, "Preencha o componente", Toast.LENGTH_LONG).show();
                     }
                 } else {
+                    progressBarCadastroPreventivos.setVisibility(View.GONE);
                     Toast.makeText(CadastroPreventivosActivity.this, "Preencha o id", Toast.LENGTH_LONG).show();
                 }
             }
