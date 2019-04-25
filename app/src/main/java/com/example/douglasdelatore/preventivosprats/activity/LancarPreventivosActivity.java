@@ -27,9 +27,8 @@ import java.util.Date;
 public class LancarPreventivosActivity extends AppCompatActivity {
 
     private EditText campoProcedimento, campoObs, campoNumeroOS;
-    private TextView campoTarefa, campoDataEHora, campoUsuario, campoPerfil;
+    private TextView campoTarefa, campoDataEHora;
     private Button botaoLancar;
-    private String idUsuarioLogado;
     private DatabaseReference databaseReference;
 
 
@@ -50,8 +49,8 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                 String dataEHora = campoDataEHora.getText().toString();
                 String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
 
-                if (numeroOs.isEmpty()){
-                    if (obs.isEmpty()){
+                if (!numeroOs.isEmpty()){
+                    if (!obs.isEmpty()){
 
                         Preventivo preventivo = new Preventivo();
                         preventivo.setTarefa(tarefa);
@@ -60,10 +59,11 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                         preventivo.setNumeroOS(numeroOs);
                         preventivo.setDataHora(dataEHora);
                         preventivo.setIdUsuario(idUsuario);
+
                         lancarPreventivo(preventivo);
 
                     }else{
-                     Toast.makeText(LancarPreventivosActivity.this, "Preencha o campo de Observação", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LancarPreventivosActivity.this, "Preencha o campo de Observação", Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(LancarPreventivosActivity.this, "Preencha o número da OS", Toast.LENGTH_LONG).show();
@@ -71,6 +71,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
 
             }
         });
+
 
     }
 
@@ -80,7 +81,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if( task.isSuccessful() ){
-                    Toast.makeText(LancarPreventivosActivity.this, "Preventivo cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LancarPreventivosActivity.this, "Lançamento realizado com sucesso", Toast.LENGTH_LONG).show();
                     startActivity( new Intent(getApplicationContext(), MainActivity.class));
                     finish();
                 }
@@ -97,6 +98,8 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
         botaoLancar         = findViewById(R.id.buttonLancar);
 
+        campoTarefa.setText("teste");
+        campoProcedimento.setText("teste procedimento");
 
         //Pegar Data atual do celular!!!
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
@@ -109,16 +112,10 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         String data_completa = dateFormat.format(data_atual);
         campoDataEHora.setText(data_completa);
 
-        //Recuperar dados do usuário
-        FirebaseUser usuarioPerfil = UsuarioFirebase.getUsuarioAtual();
-        String verificaPerfil = usuarioPerfil.getPhoneNumber().toUpperCase();
-        String verificaNome =  usuarioPerfil.getDisplayName();
-        //idUsuarioLogado = UsuarioFirebase.getIdentificadorUsuario();
-        campoUsuario.setText(verificaNome);
-        campoPerfil.setText("teste");
-
         campoProcedimento.setEnabled(false);
         campoNumeroOS.requestFocus();
+
+        campoProcedimento.setText("clamp");
 
     }
 }
