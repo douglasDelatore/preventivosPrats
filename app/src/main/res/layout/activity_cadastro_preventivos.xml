@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="ID"
+        android:hint="ID - Posição"
         android:inputType="textPersonName" />
 
     <EditText
@@ -33,13 +33,17 @@
         android:hint="Componente"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/editTextOperacaoCadPrev"
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Operação"
-        android:inputType="textPersonName" />
+        android:text="Operação:" />
+
+    <Spinner
+        android:id="@+id/spinnerCadastroOperacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -93,4 +97,5 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

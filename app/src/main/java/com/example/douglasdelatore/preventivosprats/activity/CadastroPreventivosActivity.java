@@ -18,18 +18,18 @@ import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class CadastroPreventivosActivity extends AppCompatActivity {
 
-    private EditText campoId, campoComponente, campoOperacao, campoHoras, campoProcSheet;
-    private Spinner campoNivel, campoPeriodo;
+    private EditText campoId, campoComponente, campoHoras, campoProcSheet;
+    private Spinner campoNivel, campoPeriodo, campoOperacao;
     private Button botaoSalvar;
     private String idUsuarioLogado;
     private ProgressBar progressBarCadastroPreventivos;
-    private String[] items = new String[] {"1", "2", "3"};
+    private String[] items = new String[] {"1", "2", "3", "4", "5"};
     private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
+    private String[] operacao = new String[] {"Controle","Limpeza","Substituição","Lubrificação"};
     private DatabaseReference databaseReference;
 
 
@@ -47,7 +47,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 progressBarCadastroPreventivos.setVisibility(View.VISIBLE);
                 String id           = campoId.getText().toString();
                 String componente   = campoComponente.getText().toString();
-                String operacao     = campoOperacao.getText().toString();
+                String operacao     = campoOperacao.getSelectedItem().toString();
                 String periodo      = campoPeriodo.getSelectedItem().toString();
                 String horas        = campoHoras.getText().toString();
                 String nivel        = campoNivel.getSelectedItem().toString();
@@ -93,7 +93,8 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                     }
                 } else {
                     progressBarCadastroPreventivos.setVisibility(View.GONE);
-                    Toast.makeText(CadastroPreventivosActivity.this, "Preencha o id", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(CadastroPreventivosActivity.this, "Preencha o id", Toast.LENGTH_LONG).show();
+                    campoId.setText("-");
                 }
             }
         });
@@ -118,7 +119,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     public void iniciarComponentes(){
         campoId                         = findViewById(R.id.editTextCodigoCadPrev);
         campoComponente                 = findViewById(R.id.editTextComponenteCadPrev);
-        campoOperacao                   = findViewById(R.id.editTextOperacaoCadPrev);
+        campoOperacao                   = findViewById(R.id.spinnerCadastroOperacao);
         campoPeriodo                    = findViewById(R.id.spinnerCadastroPeriodo);
         campoHoras                      = findViewById(R.id.editTextHorasCadPrev);
         campoNivel                      = findViewById(R.id.spinnerNivelCadPrev);
@@ -136,6 +137,11 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, periodo);
         adapterPeriodo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoPeriodo.setAdapter(adapterPeriodo);
+
+        ArrayAdapter<String> adapterOperacao = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, operacao);
+        adapterOperacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        campoOperacao.setAdapter(adapterOperacao);
 
         campoHoras.setEnabled(false);
 

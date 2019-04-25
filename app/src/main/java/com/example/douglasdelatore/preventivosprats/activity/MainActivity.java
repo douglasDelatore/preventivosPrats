@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
         botaoCadastrarUsuario       = findViewById(R.id.buttonCadastrarNovoUsuario);
         botaoCadastrarPreventivos   = findViewById(R.id.buttonCadastrarPreventivos);
         botaoSair                   = findViewById(R.id.buttonSair);
-        campoPerfil                 = findViewById(R.id.textViewPerfil);
         campoNomeUsuario            = findViewById(R.id.textViewNome);
 
         //Recuperar dados do usuário
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
 
-        if (verificaNome.equals("IAGO") || verificaNome.equals("RAFAEL") || verificaNome.equals("DOUGLAS")) {
+        if (verificaNome.equals("iago") || verificaNome.equals("rafael") || verificaNome.equals("douglas")) {
             botaoRelatorio.setVisibility(View.GONE);
             botaoCadastrarUsuario.setVisibility(View.GONE);
             botaoCadastrarPreventivos.setVisibility(View.GONE);

@@ -1,14 +1,24 @@
 package com.example.douglasdelatore.preventivosprats.activity;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.douglasdelatore.preventivosprats.R;
+import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.example.douglasdelatore.preventivosprats.helper.UsuarioFirebase;
+import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
+import com.example.douglasdelatore.preventivosprats.model.Preventivo;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -20,6 +30,8 @@ public class LancarPreventivosActivity extends AppCompatActivity {
     private TextView campoTarefa, campoDataEHora, campoUsuario, campoPerfil;
     private Button botaoLancar;
     private String idUsuarioLogado;
+    private DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +40,61 @@ public class LancarPreventivosActivity extends AppCompatActivity {
 
         iniciarComponentes();
 
+        botaoLancar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String procedimento = campoProcedimento.getText().toString();
+                String obs = campoObs.getText().toString();
+                String numeroOs = campoNumeroOS.getText().toString();
+                String tarefa = campoTarefa.getText().toString();
+                String dataEHora = campoDataEHora.getText().toString();
+                String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
+
+                if (numeroOs.isEmpty()){
+                    if (obs.isEmpty()){
+
+                        Preventivo preventivo = new Preventivo();
+                        preventivo.setTarefa(tarefa);
+                        preventivo.setProcedimento(procedimento);
+                        preventivo.setObs(obs);
+                        preventivo.setNumeroOS(numeroOs);
+                        preventivo.setDataHora(dataEHora);
+                        preventivo.setIdUsuario(idUsuario);
+                        lancarPreventivo(preventivo);
+
+                    }else{
+                     Toast.makeText(LancarPreventivosActivity.this, "Preencha o campo de Observação", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(LancarPreventivosActivity.this, "Preencha o número da OS", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
     }
 
-    private void iniciarComponentes(){
+    public void lancarPreventivo(Preventivo preventivo){
+        databaseReference = ConfiguracaoFirebase.getFirebase().child("preventivosRealizados").child(preventivo.getId());
+        databaseReference.setValue(preventivo).addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if( task.isSuccessful() ){
+                    Toast.makeText(LancarPreventivosActivity.this, "Preventivo cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                    startActivity( new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
+            }
+        });
+
+    }
+
+    public void iniciarComponentes(){
         campoProcedimento   = findViewById(R.id.editTextProcedimento);
         campoObs            = findViewById(R.id.editTextObs);
         campoNumeroOS       = findViewById(R.id.editTextNumeroOS);
         campoTarefa         = findViewById(R.id.textViewTarefa);
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
-        campoPerfil         = findViewById(R.id.textViewPerfil);
         botaoLancar         = findViewById(R.id.buttonLancar);
 
 

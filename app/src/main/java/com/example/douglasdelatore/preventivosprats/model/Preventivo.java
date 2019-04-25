@@ -6,6 +6,7 @@ import com.google.firebase.database.DatabaseReference;
 public class Preventivo {
 
     private String id;
+    private String idTarefa;
     private String idUsuario;
     private String procedimento;
     private String obs;
@@ -76,5 +77,13 @@ public class Preventivo {
 
     public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
+    }
+
+    public String getIdTarefa() {
+        return idTarefa;
+    }
+
+    public void setIdTarefa(String idTarefa) {
+        this.idTarefa = idTarefa;
     }
 }
