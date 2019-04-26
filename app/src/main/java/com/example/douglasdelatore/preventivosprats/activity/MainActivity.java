@@ -112,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
 
+        botaoLancarPreventivo.setVisibility(View.GONE);
+
         if (verificaNome.equals("iago") || verificaNome.equals("rafael") || verificaNome.equals("douglas")) {
             botaoRelatorio.setVisibility(View.GONE);
             botaoCadastrarUsuario.setVisibility(View.GONE);
