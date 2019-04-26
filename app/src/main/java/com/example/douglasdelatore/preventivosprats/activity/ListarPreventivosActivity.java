@@ -64,8 +64,11 @@ public class ListarPreventivosActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(View view, int position) {
 
+                                CadastroPreventivos cadastroPreventivosSelecionado = listaPreventivos.get(position);
                                 Intent intent = new Intent(ListarPreventivosActivity.this, LancarPreventivosActivity.class);
+                                intent.putExtra("tarefa", cadastroPreventivosSelecionado );
                                 startActivity(intent);
+                                finish();
 
                             }
 

@@ -3,7 +3,7 @@
     package="com.example.douglasdelatore.preventivosprats">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +23,8 @@
         <activity android:name=".activity.LancarPreventivosActivity" />
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.CadastroPreventivosActivity" />
-        <activity android:name=".activity.ListarPreventivosActivity"></activity>
+        <activity android:name=".activity.ListarPreventivosActivity" />
+        <activity android:name=".activity.RelatorioActivity"></activity>
     </application>
 
 </manifest>

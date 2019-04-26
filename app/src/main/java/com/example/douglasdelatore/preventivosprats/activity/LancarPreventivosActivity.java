@@ -30,6 +30,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
     private TextView campoTarefa, campoDataEHora;
     private Button botaoLancar;
     private DatabaseReference databaseReference;
+    private CadastroPreventivos preventivosDestino;
 
 
     @Override
@@ -98,8 +99,12 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
         botaoLancar         = findViewById(R.id.buttonLancar);
 
-        campoTarefa.setText("teste");
-        campoProcedimento.setText("teste procedimento");
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            preventivosDestino = (CadastroPreventivos) bundle.getSerializable("tarefa");
+            campoTarefa.setText(preventivosDestino.getComponente());
+            campoProcedimento.setText(preventivosDestino.getProcSheet());
+        }
 
         //Pegar Data atual do celular!!!
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
@@ -114,8 +119,6 @@ public class LancarPreventivosActivity extends AppCompatActivity {
 
         campoProcedimento.setEnabled(false);
         campoNumeroOS.requestFocus();
-
-        campoProcedimento.setText("clamp");
 
     }
 }
