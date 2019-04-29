@@ -34,9 +34,9 @@ public class PreventivosAdapter extends RecyclerView.Adapter<PreventivosAdapter.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         CadastroPreventivos preventivo = preventivos.get(position);
 
-        holder.tarefa.setText(preventivo.getComponente());
-        holder.periodo.setText(preventivo.getPeriodo());
-        holder.procedimento.setText(preventivo.getProcSheet());
+        holder.tarefa.setText(preventivo.getComponente().toUpperCase());
+        holder.periodo.setText(preventivo.getPeriodo().toUpperCase());
+        holder.procedimento.setText(preventivo.getProcSheet().toUpperCase());
 
     }
 

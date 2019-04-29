@@ -15,6 +15,7 @@ import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.example.douglasdelatore.preventivosprats.helper.UsuarioFirebase;
 import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
 import com.example.douglasdelatore.preventivosprats.model.Preventivo;
+import com.example.douglasdelatore.preventivosprats.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
@@ -49,6 +50,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                 String tarefa = campoTarefa.getText().toString();
                 String dataEHora = campoDataEHora.getText().toString();
                 String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
+                String nomeUsuario = UsuarioFirebase.getNomeUsuario();
 
                 if (!numeroOs.isEmpty()){
                     if (!obs.isEmpty()){
@@ -60,6 +62,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                         preventivo.setNumeroOS(numeroOs);
                         preventivo.setDataHora(dataEHora);
                         preventivo.setIdUsuario(idUsuario);
+                        preventivo.setNomeUsuario(nomeUsuario);
 
                         lancarPreventivo(preventivo);
 

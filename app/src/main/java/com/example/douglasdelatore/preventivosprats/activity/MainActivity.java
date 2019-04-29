@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button botaoLancarPreventivo, botaoListarPreventivo, botaoRelatorio, botaoCadastrarUsuario, botaoSair, botaoCadastrarPreventivos;
+    private Button botaoLancarPreventivo, botaoListarPreventivo, botaoRelatorio, botaoCadastrarUsuario, botaoSair, botaoCadastrarPreventivos, botaoChecklist;
     private TextView campoPerfil, campoNomeUsuario;
     private FirebaseAuth autenticacao;
     private String idUsuarioLogado;
@@ -78,6 +78,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Botao para cadastrar checklist(visivel apenas para adms)
+        botaoChecklist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CheckListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Configura o botao sair
         botaoSair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         botaoRelatorio              = findViewById(R.id.buttonRelatorio);
         botaoCadastrarUsuario       = findViewById(R.id.buttonCadastrarNovoUsuario);
         botaoCadastrarPreventivos   = findViewById(R.id.buttonCadastrarPreventivos);
+        botaoChecklist              = findViewById(R.id.buttonCheclist);
         botaoSair                   = findViewById(R.id.buttonSair);
         campoNomeUsuario            = findViewById(R.id.textViewNome);
 
@@ -111,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
         String verificaNome         = usuarioPerfil.getDisplayName().toUpperCase();
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
-
         botaoLancarPreventivo.setVisibility(View.GONE);
 
         if (verificaNome.equals("iago") || verificaNome.equals("rafael") || verificaNome.equals("douglas")) {

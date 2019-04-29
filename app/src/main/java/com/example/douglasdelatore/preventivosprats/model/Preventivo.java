@@ -13,6 +13,7 @@ public class Preventivo {
     private String numeroOS;
     private String tarefa;
     private String dataHora;
+    private String nomeUsuario;
 
     public Preventivo() {
 
@@ -85,5 +86,13 @@ public class Preventivo {
 
     public void setIdTarefa(String idTarefa) {
         this.idTarefa = idTarefa;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 }

@@ -36,7 +36,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     private String[] items = new String[] {"1", "2", "3", "4", "5"};
     private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
     private String[] operacao = new String[] {"Controle","Limpeza","Substituição","Lubrificação"};
-    private String[] colocacao = new String[] {"Enchedora"};
+    private String[] colocacao = new String[] {"Enchedora", "Sopradora"};
     private DatabaseReference databaseReference;
 
 
@@ -62,7 +62,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String procSheet    = campoProcSheet.getText().toString().toUpperCase();
                 String posicao      = campoPosicao.getText().toString();
                 String dataHora     = campoDataHoraCadastro.getText().toString();
-
 
                 if (!id.isEmpty()) {
                     if (!componente.isEmpty()) {
@@ -117,7 +116,23 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     }
 
     public void salvarNovoPreventivo(CadastroPreventivos cadastroPreventivos){
-        databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child(cadastroPreventivos.getId());
+        databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel");
+        if (campoColocacao.getSelectedItemPosition() == 0){ //enchedora
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Enchedora")
+                    .child(cadastroPreventivos.getId());
+            //databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel").child(cadastroPreventivos.getId());
+        } else if (campoColocacao.getSelectedItemPosition() == 1) { //sopradora
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Sopradora")
+                    .child(cadastroPreventivos.getId());
+            }
+
+        //databaseReference = ConfiguracaoFirebase.getFirebase().child("Sidel").child("PreventivoFixo").child(cadastroPreventivos.getId());
         databaseReference.setValue(cadastroPreventivos).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -43,9 +43,14 @@ public class CheckListActivity extends AppCompatActivity {
         botaoSalvarCheckList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String campoOpcao = "", campoOpcao2 = "", campoOpcao3 = "", campoOpcao4 = "", campoOpcao5 = "";
+                String campoOpcao = "Não Conforme",
+                        campoOpcao2 = "Não Conforme",
+                        campoOpcao3 = "Não Conforme",
+                        campoOpcao4 = "Não Conforme",
+                        campoOpcao5 = "Não Conforme";
+
                 String campoDataHora = dataHora.getText().toString();
-                String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
+                String idUsuario = UsuarioFirebase.getNomeUsuario();
                 String campoTurno = spinnerTurno.getSelectedItem().toString();
 
 
@@ -66,6 +71,7 @@ public class CheckListActivity extends AppCompatActivity {
                 }
 
                 CheckList checkList = new CheckList();
+
                 checkList.setOpcao1(campoOpcao);
                 checkList.setOpcao2(campoOpcao2);
                 checkList.setOpcao3(campoOpcao3);
@@ -78,8 +84,6 @@ public class CheckListActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

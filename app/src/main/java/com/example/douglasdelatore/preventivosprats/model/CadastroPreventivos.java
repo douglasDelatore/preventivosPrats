@@ -26,7 +26,7 @@ public class CadastroPreventivos implements Serializable {
 
     public CadastroPreventivos() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
-        DatabaseReference cadastroPreventivosRef = firebaseRef.child("preventivosFixos");
+        DatabaseReference cadastroPreventivosRef = firebaseRef.child("PreventivoFixo");
         String idPreventivoCadastro = cadastroPreventivosRef.push().getKey();
         setId( idPreventivoCadastro );
     }

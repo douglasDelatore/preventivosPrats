@@ -1,5 +1,8 @@
 package com.example.douglasdelatore.preventivosprats.model;
 
+import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
+
 public class CheckList {
 
     private String id;
@@ -13,6 +16,10 @@ public class CheckList {
     private String dataHora;
 
     public CheckList() {
+        DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
+        DatabaseReference cadastroCheklist = firebaseRef.child("checklist");
+        String idChecklistCadastro = cadastroCheklist.push().getKey();
+        setId( idChecklistCadastro );
     }
 
     public String getId() {

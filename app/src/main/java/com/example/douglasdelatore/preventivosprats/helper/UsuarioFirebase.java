@@ -24,6 +24,10 @@ public class UsuarioFirebase {
         return getUsuarioAtual().getUid();
     }
 
+    public static String getNomeUsuario(){
+        return getUsuarioAtual().getDisplayName();
+    }
+
     public static void atualizarNomeUsuario(String nome){
 
         try {

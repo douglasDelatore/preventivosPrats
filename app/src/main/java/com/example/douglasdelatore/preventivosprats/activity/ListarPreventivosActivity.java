@@ -41,7 +41,8 @@ public class ListarPreventivosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listar_preventivos);
 
         iniciarComponentes();
-        preventivosRef = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo");
+
+        preventivosRef = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel").child("Enchedora");
 
         //DatabaseReference preventivos = referencia.child("PreventivoFixo");
 
