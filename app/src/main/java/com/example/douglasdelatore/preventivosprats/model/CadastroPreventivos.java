@@ -14,12 +14,15 @@ public class CadastroPreventivos implements Serializable {
     private String id;
     private String idUsuario;
     private String codigo;
+    private String posicao;
     private String componente;
     private String operacao;
+    private String Colocacao;
     private String periodo;
     private String horas;
     private String nivel;
     private String procSheet;
+    private String dataHoraCadastro;
 
     public CadastroPreventivos() {
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
@@ -98,5 +101,29 @@ public class CadastroPreventivos implements Serializable {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getColocacao() {
+        return Colocacao;
+    }
+
+    public void setColocacao(String colocacao) {
+        Colocacao = colocacao;
+    }
+
+    public String getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(String posicao) {
+        this.posicao = posicao;
+    }
+
+    public String getDataHoraCadastro() {
+        return dataHoraCadastro;
+    }
+
+    public void setDataHoraCadastro(String dataHoraCadastro) {
+        this.dataHoraCadastro = dataHoraCadastro;
     }
 }

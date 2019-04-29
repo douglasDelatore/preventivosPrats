@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
@@ -19,17 +20,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class CadastroPreventivosActivity extends AppCompatActivity {
 
-    private EditText campoId, campoComponente, campoHoras, campoProcSheet;
-    private Spinner campoNivel, campoPeriodo, campoOperacao;
+    private EditText campoId, campoComponente, campoHoras, campoProcSheet, campoPosicao;
+    private TextView campoDataHoraCadastro;
+    private Spinner campoNivel, campoPeriodo, campoOperacao, campoColocacao;
     private Button botaoSalvar;
     private String idUsuarioLogado;
     private ProgressBar progressBarCadastroPreventivos;
     private String[] items = new String[] {"1", "2", "3", "4", "5"};
     private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
     private String[] operacao = new String[] {"Controle","Limpeza","Substituição","Lubrificação"};
+    private String[] colocacao = new String[] {"Enchedora"};
     private DatabaseReference databaseReference;
 
 
@@ -51,7 +58,11 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String periodo      = campoPeriodo.getSelectedItem().toString();
                 String horas        = campoHoras.getText().toString();
                 String nivel        = campoNivel.getSelectedItem().toString();
-                String procSheet    = campoProcSheet.getText().toString();
+                String colocacao    = campoColocacao.getSelectedItem().toString();
+                String procSheet    = campoProcSheet.getText().toString().toUpperCase();
+                String posicao      = campoPosicao.getText().toString();
+                String dataHora     = campoDataHoraCadastro.getText().toString();
+
 
                 if (!id.isEmpty()) {
                     if (!componente.isEmpty()) {
@@ -68,12 +79,17 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                                         cadastroPreventivos.setHoras(horas);
                                         cadastroPreventivos.setProcSheet(procSheet);
                                         cadastroPreventivos.setNivel(nivel);
+                                        cadastroPreventivos.setPosicao(posicao);
+                                        cadastroPreventivos.setColocacao(colocacao);
+                                        cadastroPreventivos.setNivel(nivel);
+                                        cadastroPreventivos.setDataHoraCadastro(dataHora);
 
                                         salvarNovoPreventivo(cadastroPreventivos);
 
                                     } else {
                                         progressBarCadastroPreventivos.setVisibility(View.GONE);
-                                        Toast.makeText(CadastroPreventivosActivity.this, "Preencha o ProcSheet", Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(CadastroPreventivosActivity.this, "Preencha o ProcSheet", Toast.LENGTH_LONG).show();
+                                        campoProcSheet.setText("-");
                                     }
                                 } else {
                                     progressBarCadastroPreventivos.setVisibility(View.GONE);
@@ -118,32 +134,54 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
 
     public void iniciarComponentes(){
         campoId                         = findViewById(R.id.editTextCodigoCadPrev);
+        campoDataHoraCadastro           = findViewById(R.id.textViewDtHrCadPrev);
         campoComponente                 = findViewById(R.id.editTextComponenteCadPrev);
+        campoPosicao                    = findViewById(R.id.editTextPosicaoCadPrev);
         campoOperacao                   = findViewById(R.id.spinnerCadastroOperacao);
         campoPeriodo                    = findViewById(R.id.spinnerCadastroPeriodo);
         campoHoras                      = findViewById(R.id.editTextHorasCadPrev);
         campoNivel                      = findViewById(R.id.spinnerNivelCadPrev);
+        campoColocacao                  = findViewById(R.id.spinnerCadastroColocacao);
         campoProcSheet                  = findViewById(R.id.editTextProcSheetCadPrev);
         botaoSalvar                     = findViewById(R.id.buttonSalvarCadPrev);
         progressBarCadastroPreventivos  = findViewById(R.id.progressBarCadastroPreventivos);
         progressBarCadastroPreventivos.setVisibility(View.GONE);
 
+
+        //Implementar spinner de itens
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, items);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoNivel.setAdapter(adapter);
 
+        //Implementar spinner de periodo
         ArrayAdapter<String> adapterPeriodo = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, periodo);
         adapterPeriodo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoPeriodo.setAdapter(adapterPeriodo);
 
+        //Implementar spinner de Operacao
         ArrayAdapter<String> adapterOperacao = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, operacao);
         adapterOperacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoOperacao.setAdapter(adapterOperacao);
 
+        //Implementar spinner de Colocacao
+        ArrayAdapter<String> adapterColocacao = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, colocacao);
+        adapterOperacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        campoColocacao.setAdapter(adapterColocacao);
+
         campoHoras.setEnabled(false);
+
+        //Pegar Data atual do celular!!!
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+        Date data = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
+        Date data_atual = cal.getTime();
+        String data_completa = dateFormat.format(data_atual);
+        campoDataHoraCadastro.setText(data_completa);
 
         campoPeriodo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -17,13 +17,33 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Colocação" />
+
+    <Spinner
+        android:id="@+id/spinnerCadastroColocacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" />
+
     <EditText
         android:id="@+id/editTextCodigoCadPrev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="ID - Posição"
+        android:hint="CodId"
         android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextPosicaoCadPrev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Posição"
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/editTextComponenteCadPrev"
@@ -63,7 +83,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Horas"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:padding="5dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -83,7 +104,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="ProcSheet"
-        android:inputType="textPersonName" />
+        android:inputType="textCapCharacters" />
+
+    <TextView
+        android:id="@+id/textViewDtHrCadPrev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data e Hora Cadastro" />
 
     <Button
         android:id="@+id/buttonSalvarCadPrev"
