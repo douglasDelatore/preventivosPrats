@@ -57,6 +57,17 @@
         tools:layout_editor_absoluteY="347dp" />
 
     <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Turno:" />
+
+    <Spinner
+        android:id="@+id/spinnerClTurno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/textViewCheckListDataHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

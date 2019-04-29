@@ -51,7 +51,7 @@
         AndroidManifest.xml
         <activity android:name=".activity.CheckListActivity" />
         <activity android:name=".activity.RelPreventivasRealizadasActivity" />
-        <activity android:name=".activity.RelPreventivasRealizadasOperadorActivity"></activity>
+        <activity android:name=".activity.RelPreventivasRealizadasOperadorActivity" />
     </application>
 
 </manifest>

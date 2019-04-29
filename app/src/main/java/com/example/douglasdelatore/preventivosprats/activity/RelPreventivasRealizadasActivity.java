@@ -21,9 +21,11 @@ public class RelPreventivasRealizadasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rel_preventivas_realizadas);
 
+
+
         GraphView graph = (GraphView) findViewById(R.id.graph);
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, -1),
+                new DataPoint(0, 12),
                 new DataPoint(1, 5),
                 new DataPoint(2, 3),
                 new DataPoint(3, 2),
@@ -46,4 +48,5 @@ public class RelPreventivasRealizadasActivity extends AppCompatActivity {
         series.setValuesOnTopColor(Color.RED);
 //series.setValuesOnTopSize(50);
     }
+
 }

@@ -30,7 +30,7 @@ public class RelatorioActivity extends AppCompatActivity {
         botaoRelatorioPorOperador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RelatorioActivity.this, RelPreventivasRealizadasActivity.class);
+                Intent intent = new Intent(RelatorioActivity.this, RelPreventivasRealizadasOperadorActivity.class);
                 startActivity(intent);
             }
         });
