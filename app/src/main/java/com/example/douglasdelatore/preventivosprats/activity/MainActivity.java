@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         botaoRelatorio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, RelatorioActivity.class);
                 startActivity(intent);
             }
         });
