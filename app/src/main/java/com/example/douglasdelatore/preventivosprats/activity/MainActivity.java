@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.douglasdelatore.preventivosprats.R;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView campoPerfil, campoNomeUsuario;
     private FirebaseAuth autenticacao;
     private String idUsuarioLogado;
+    private int contador = 0;
+    private ImageView imageView;
 
     private DatabaseReference databaseReference;
 
@@ -95,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
+
+        easterEgg();
     }
 
     //Metodo para deslogar usuários
@@ -106,6 +111,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void easterEgg(){
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contador = contador++;
+                if (contador == 10){
+                    startActivity(new Intent(MainActivity.this, EasterEggPlayerActivity.class));
+                }
+            }
+        });
+    }
+
     public void iniciarComponentes(){
         botaoLancarPreventivo       = findViewById(R.id.buttonLancarPreventivos);
         botaoListarPreventivo       = findViewById(R.id.buttonListaPreventivos);
@@ -115,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         botaoChecklist              = findViewById(R.id.buttonCheclist);
         botaoSair                   = findViewById(R.id.buttonSair);
         campoNomeUsuario            = findViewById(R.id.textViewNome);
+        imageView                   = findViewById(R.id.imageViewLogoPrincipal);
 
         //Recuperar dados do usuário
         FirebaseUser usuarioPerfil  = UsuarioFirebase.getUsuarioAtual();

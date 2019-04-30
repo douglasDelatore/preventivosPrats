@@ -28,7 +28,7 @@ import java.util.Date;
 public class LancarPreventivosActivity extends AppCompatActivity {
 
     private EditText campoProcedimento, campoObs, campoNumeroOS;
-    private TextView campoTarefa, campoDataEHora;
+    private TextView campoTarefa, campoDataEHora, campoComponente;
     private Button botaoLancar;
     private DatabaseReference databaseReference;
     private CadastroPreventivos preventivosDestino;
@@ -51,6 +51,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                 String dataEHora = campoDataEHora.getText().toString();
                 String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
                 String nomeUsuario = UsuarioFirebase.getNomeUsuario();
+                Boolean statusOk = true;
 
                 if (!numeroOs.isEmpty()){
                     if (!obs.isEmpty()){
@@ -63,6 +64,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                         preventivo.setDataHora(dataEHora);
                         preventivo.setIdUsuario(idUsuario);
                         preventivo.setNomeUsuario(nomeUsuario);
+                        preventivo.setStatus(statusOk);
 
                         lancarPreventivo(preventivo);
 
@@ -100,13 +102,16 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoNumeroOS       = findViewById(R.id.editTextNumeroOS);
         campoTarefa         = findViewById(R.id.textViewTarefa);
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
+        campoComponente     = findViewById(R.id.textViewComponente);
         botaoLancar         = findViewById(R.id.buttonLancar);
+
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             preventivosDestino = (CadastroPreventivos) bundle.getSerializable("tarefa");
             campoTarefa.setText(preventivosDestino.getComponente());
             campoProcedimento.setText(preventivosDestino.getProcSheet());
+            campoComponente.setText(preventivosDestino.getColocacao());
         }
 
         //Pegar Data atual do celular!!!

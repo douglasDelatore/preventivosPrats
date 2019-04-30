@@ -32,6 +32,12 @@
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="73dp" />
 
+    <TextView
+        android:id="@+id/textViewComponente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Componente" />
+
     <EditText
         android:id="@+id/editTextProcedimento"
         android:layout_width="match_parent"
@@ -48,7 +54,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Número O.S.:"
-        android:inputType="textPersonName"
+        android:inputType="number"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="187dp" />
 

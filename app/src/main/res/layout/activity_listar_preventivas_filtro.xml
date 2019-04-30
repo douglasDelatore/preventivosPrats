@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".activity.ListarPreventivasFiltroActivity">
+
+
+    <Button
+        android:id="@+id/buttonListaDiario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Diário" />
+
+    <Button
+        android:id="@+id/buttonListaSemanal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Semanal" />
+
+    <Button
+        android:id="@+id/buttonListaMensal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Mensal" />
+
+    <Button
+        android:id="@+id/buttonListaTrimestral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Trimestral" />
+
+    <Button
+        android:id="@+id/buttonListaSemestral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Semestral" />
+
+    <Button
+        android:id="@+id/buttonListaAnual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Anual" />
+
+    <Button
+        android:id="@+id/buttonListaDoisAnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Dois Anos" />
+
+    <Button
+        android:id="@+id/buttonListaTresAnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Três Anos" />
+
+    <Button
+        android:id="@+id/buttonListaQuatroAnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Quatro Anos" />
+
+    <Button
+        android:id="@+id/buttonListaCondicional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_botao"
+        android:text="Condicional" />
+</LinearLayout>

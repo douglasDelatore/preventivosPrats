@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewLogoPrincipal"
         android:layout_width="149dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -52,7 +52,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoPrincipal" />
 
     <EditText
         android:id="@+id/editTextSenha"

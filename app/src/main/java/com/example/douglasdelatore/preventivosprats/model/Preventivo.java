@@ -14,6 +14,8 @@ public class Preventivo {
     private String tarefa;
     private String dataHora;
     private String nomeUsuario;
+    private String colocacao;
+    private Boolean status;
 
     public Preventivo() {
 
@@ -94,5 +96,21 @@ public class Preventivo {
 
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getColocacao() {
+        return colocacao;
+    }
+
+    public void setColocacao(String colocacao) {
+        this.colocacao = colocacao;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

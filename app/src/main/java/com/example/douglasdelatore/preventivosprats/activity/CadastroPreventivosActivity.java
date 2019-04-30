@@ -63,6 +63,8 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String posicao      = campoPosicao.getText().toString();
                 String dataHora     = campoDataHoraCadastro.getText().toString();
 
+
+
                 if (!id.isEmpty()) {
                     if (!componente.isEmpty()) {
                         if (!operacao.isEmpty()) {
@@ -117,18 +119,57 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
 
     public void salvarNovoPreventivo(CadastroPreventivos cadastroPreventivos){
         databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel");
+
+        String textoPeriodo = "";
+        switch (campoPeriodo.getSelectedItemPosition()){
+            case 0:
+                textoPeriodo = "Diario";
+                break;
+            case 1:
+                textoPeriodo = "Semanal";
+                break;
+            case 2:
+                textoPeriodo = "Mensal";
+                break;
+            case 3:
+                textoPeriodo = "Bimestral";
+                break;
+            case 4:
+                textoPeriodo = "Trimestral";
+                break;
+            case 5:
+                textoPeriodo = "Semestral";
+                break;
+            case 6:
+                textoPeriodo = "Anual";
+                break;
+            case 7:
+                textoPeriodo = "Dois anos";
+                break;
+            case 8:
+                textoPeriodo = "Tres anos";
+                break;
+            case 9:
+                textoPeriodo = "Quatro anos";
+                break;
+            case 10:
+                textoPeriodo = "Condicional";
+                break;
+        }
         if (campoColocacao.getSelectedItemPosition() == 0){ //enchedora
             databaseReference = ConfiguracaoFirebase.getFirebase()
                     .child("PreventivoFixo")
                     .child("Sidel")
                     .child("Enchedora")
+                    .child(textoPeriodo)
                     .child(cadastroPreventivos.getId());
-            //databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel").child(cadastroPreventivos.getId());
+
         } else if (campoColocacao.getSelectedItemPosition() == 1) { //sopradora
             databaseReference = ConfiguracaoFirebase.getFirebase()
                     .child("PreventivoFixo")
                     .child("Sidel")
                     .child("Sopradora")
+                    .child(textoPeriodo)
                     .child(cadastroPreventivos.getId());
             }
 
@@ -184,7 +225,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
         //Implementar spinner de Colocacao
         ArrayAdapter<String> adapterColocacao = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, colocacao);
-        adapterOperacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterColocacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         campoColocacao.setAdapter(adapterColocacao);
 
         campoHoras.setEnabled(false);
