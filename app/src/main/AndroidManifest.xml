@@ -55,7 +55,15 @@
         <activity android:name=".activity.FiltroActivity" />
         <activity android:name=".activity.RelatorioMainActivity" />
         <activity android:name=".activity.ListarPreventivasFiltroActivity" />
-        <activity android:name=".activity.EasterEggPlayerActivity"></activity>
+        <activity android:name=".activity.EasterEggPlayerActivity" />
+        <activity android:name=".activity.ListarPreventivosAnuaisActivity" />
+        <activity android:name=".activity.ListarPreventivosSemanaisActivity" />
+        <activity android:name=".activity.ListarPreventivosMensaisActivity" />
+        <activity android:name=".activity.ListarPreventivosDoisAnosActivity" />
+        <activity android:name=".activity.ListarPreventivosTresAnosActivity" />
+        <activity android:name=".activity.ListarPreventivosQuatroAnosActivity" />
+        <activity android:name=".activity.ListarPreventivosDiarioActivity" />
+        <activity android:name=".activity.ListarPreventivosCondicionaisActivity"></activity>
     </application>
 
 </manifest>

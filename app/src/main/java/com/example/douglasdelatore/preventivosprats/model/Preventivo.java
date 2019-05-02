@@ -16,11 +16,12 @@ public class Preventivo {
     private String nomeUsuario;
     private String colocacao;
     private Boolean status;
+    private String periodo;
 
     public Preventivo() {
 
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
-        DatabaseReference preventivoRef = firebaseRef.child("preventivosFeitos");
+        DatabaseReference preventivoRef = firebaseRef.child("PreventivosFeitos");
         String idPreventivo = preventivoRef.push().getKey();
         setId(idPreventivo);
 
@@ -112,5 +113,13 @@ public class Preventivo {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public String getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(String periodo) {
+        this.periodo = periodo;
     }
 }

@@ -37,6 +37,7 @@ public class PreventivosAdapter extends RecyclerView.Adapter<PreventivosAdapter.
         holder.tarefa.setText(preventivo.getComponente().toUpperCase());
         holder.periodo.setText(preventivo.getPeriodo().toUpperCase());
         holder.procedimento.setText(preventivo.getProcSheet().toUpperCase());
+        holder.posicao.setText(preventivo.getPosicao().toUpperCase());
 
     }
 
@@ -47,7 +48,7 @@ public class PreventivosAdapter extends RecyclerView.Adapter<PreventivosAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tarefa, procedimento, periodo;
+        TextView tarefa, procedimento, periodo, posicao;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -56,6 +57,7 @@ public class PreventivosAdapter extends RecyclerView.Adapter<PreventivosAdapter.
             tarefa          = itemView.findViewById(R.id.textListaTarefa);
             periodo         = itemView.findViewById(R.id.textListaPeriodo);
             procedimento    = itemView.findViewById(R.id.textListaProcedimento);
+            posicao         = itemView.findViewById(R.id.textViewListaPosicao);
 
         }
     }

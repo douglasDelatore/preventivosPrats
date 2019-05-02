@@ -36,7 +36,8 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     private String[] items = new String[] {"1", "2", "3", "4", "5"};
     private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
     private String[] operacao = new String[] {"Controle","Limpeza","Substituição","Lubrificação"};
-    private String[] colocacao = new String[] {"Enchedora", "Sopradora"};
+    private String[] colocacao = new String[] {"Enchedora", "Sopradora", "Módulo Transferencia Combi",
+                            "Tratamento de cápsulas dry", "Capsuladora", "Fim da linha", "Unidade CIP", "Unidade PAA"};
     private DatabaseReference databaseReference;
 
 
@@ -173,6 +174,61 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                     .child(cadastroPreventivos.getId());
             }
 
+        else if (campoColocacao.getSelectedItemPosition() == 2) { //Módulo Transferencia Combi
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Módulo Transferencia Combi")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 3) { //Tratamento de cápsulas dry
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Tratamento de cápsulas dry")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 4) { //Capsuladora
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Capsuladora")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 5) { //Fim da linha
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Fim da linha")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 6) { //Unidade CIP
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Unidade CIP")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 7) { //Unidade PAA
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Unidade PAA")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+
         //databaseReference = ConfiguracaoFirebase.getFirebase().child("Sidel").child("PreventivoFixo").child(cadastroPreventivos.getId());
         databaseReference.setValue(cadastroPreventivos).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
@@ -185,7 +241,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void iniciarComponentes(){
@@ -202,7 +257,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
         botaoSalvar                     = findViewById(R.id.buttonSalvarCadPrev);
         progressBarCadastroPreventivos  = findViewById(R.id.progressBarCadastroPreventivos);
         progressBarCadastroPreventivos.setVisibility(View.GONE);
-
 
         //Implementar spinner de itens
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,

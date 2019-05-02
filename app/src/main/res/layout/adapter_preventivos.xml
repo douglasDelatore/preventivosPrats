@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text="Tarefa"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -32,5 +32,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Procedimento" />
+
+    <TextView
+        android:id="@+id/textViewListaPosicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Posicao" />
 
 </LinearLayout>

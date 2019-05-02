@@ -29,6 +29,8 @@ public class CadastroActivity extends AppCompatActivity {
     private Button botaoCadastrar;
     private ProgressBar progressBar;
 
+    private String nome;
+
     private Usuario usuario;
     private FirebaseAuth autenticacao;
 

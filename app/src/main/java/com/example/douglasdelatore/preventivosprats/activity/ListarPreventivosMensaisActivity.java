@@ -4,29 +4,24 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 
 import com.example.douglasdelatore.preventivosprats.R;
 import com.example.douglasdelatore.preventivosprats.adapter.PreventivosAdapter;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.example.douglasdelatore.preventivosprats.helper.RecyclerItemClickListener;
 import com.example.douglasdelatore.preventivosprats.model.CadastroPreventivos;
-import com.example.douglasdelatore.preventivosprats.model.Preventivo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.EventListener;
-import java.util.List;
 
-public class ListarPreventivosActivity extends AppCompatActivity {
+public class ListarPreventivosMensaisActivity extends AppCompatActivity {
 
     private ArrayList<CadastroPreventivos> listaPreventivos = new ArrayList<>();
     private RecyclerView recyclerViewPreventivos;
@@ -34,18 +29,14 @@ public class ListarPreventivosActivity extends AppCompatActivity {
     private PreventivosAdapter adapter;
     private ValueEventListener valueEventListenerPreventivos;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listar_preventivos);
-
+        setContentView(R.layout.activity_listar_preventivos_mensais);
         iniciarComponentes();
 
-        preventivosRef = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo").child("Sidel").child("Enchedora").child("Anual");
-
-        //DatabaseReference preventivos = referencia.child("PreventivoFixo");
-
+        preventivosRef = ConfiguracaoFirebase.getFirebase().child("PreventivoFixo")
+                .child("Sidel").child("Enchedora").child("Mensal");
 
         //Configurar adapter
         adapter = new PreventivosAdapter(listaPreventivos, this);
@@ -66,7 +57,7 @@ public class ListarPreventivosActivity extends AppCompatActivity {
                             public void onItemClick(View view, int position) {
 
                                 CadastroPreventivos cadastroPreventivosSelecionado = listaPreventivos.get(position);
-                                Intent intent = new Intent(ListarPreventivosActivity.this, LancarPreventivosActivity.class);
+                                Intent intent = new Intent(ListarPreventivosMensaisActivity.this, LancarPreventivosActivity.class);
                                 intent.putExtra("tarefa", cadastroPreventivosSelecionado );
                                 startActivity(intent);
                                 finish();
@@ -101,7 +92,7 @@ public class ListarPreventivosActivity extends AppCompatActivity {
     }
 
     public void iniciarComponentes(){
-        recyclerViewPreventivos = findViewById(R.id.recyclerViewListaPreventivos);
+        recyclerViewPreventivos = findViewById(R.id.recyclerViewListaPreventivosMensais);
     }
 
     public void recuperarPreventivos(){

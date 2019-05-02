@@ -28,7 +28,7 @@ import java.util.Date;
 public class LancarPreventivosActivity extends AppCompatActivity {
 
     private EditText campoProcedimento, campoObs, campoNumeroOS;
-    private TextView campoTarefa, campoDataEHora, campoComponente;
+    private TextView campoTarefa, campoDataEHora, campoComponente, campoTipo;
     private Button botaoLancar;
     private DatabaseReference databaseReference;
     private CadastroPreventivos preventivosDestino;
@@ -52,6 +52,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                 String idUsuario = UsuarioFirebase.getIdentificadorUsuario();
                 String nomeUsuario = UsuarioFirebase.getNomeUsuario();
                 Boolean statusOk = true;
+                String periodo = campoTipo.getText().toString();
 
                 if (!numeroOs.isEmpty()){
                     if (!obs.isEmpty()){
@@ -65,6 +66,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
                         preventivo.setIdUsuario(idUsuario);
                         preventivo.setNomeUsuario(nomeUsuario);
                         preventivo.setStatus(statusOk);
+                        preventivo.setPeriodo(periodo);
 
                         lancarPreventivo(preventivo);
 
@@ -82,7 +84,10 @@ public class LancarPreventivosActivity extends AppCompatActivity {
     }
 
     public void lancarPreventivo(Preventivo preventivo){
-        databaseReference = ConfiguracaoFirebase.getFirebase().child("preventivosRealizados").child(preventivo.getId());
+
+
+        databaseReference = ConfiguracaoFirebase.getFirebase().child("PreventivosRealizados")
+                .child(preventivo.getId());
         databaseReference.setValue(preventivo).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -103,6 +108,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
         campoTarefa         = findViewById(R.id.textViewTarefa);
         campoDataEHora      = findViewById(R.id.textViewDataEHora);
         campoComponente     = findViewById(R.id.textViewComponente);
+        campoTipo           = findViewById(R.id.textViewTipo);
         botaoLancar         = findViewById(R.id.buttonLancar);
 
 
@@ -112,6 +118,7 @@ public class LancarPreventivosActivity extends AppCompatActivity {
             campoTarefa.setText(preventivosDestino.getComponente());
             campoProcedimento.setText(preventivosDestino.getProcSheet());
             campoComponente.setText(preventivosDestino.getColocacao());
+            campoTipo.setText(preventivosDestino.getPeriodo());
         }
 
         //Pegar Data atual do celular!!!
