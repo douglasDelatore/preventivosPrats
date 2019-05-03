@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         botaoLancarPreventivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LancarPreventivosActivity.class);
+                Intent intent = new Intent(MainActivity.this, ListarPreventivosRealizadosSemanaActivity.class);
                 startActivity(intent);
             }
         });
@@ -139,12 +139,14 @@ public class MainActivity extends AppCompatActivity {
         String verificaNome         = usuarioPerfil.getDisplayName().toUpperCase();
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
-        botaoLancarPreventivo.setVisibility(View.GONE);
 
-        if (verificaNome.equals("iago") || verificaNome.equals("rafael") || verificaNome.equals("douglas")) {
-            botaoRelatorio.setVisibility(View.GONE);
-            botaoCadastrarUsuario.setVisibility(View.GONE);
-            botaoCadastrarPreventivos.setVisibility(View.GONE);
-        }
+
+
+        botaoRelatorio.setVisibility(View.GONE);
+        //botaoCadastrarUsuario.setVisibility(View.GONE);
+        botaoCadastrarPreventivos.setVisibility(View.GONE);
+        botaoChecklist.setVisibility(View.GONE);
+
+
     }
 }

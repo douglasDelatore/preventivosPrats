@@ -63,7 +63,20 @@
         <activity android:name=".activity.ListarPreventivosTresAnosActivity" />
         <activity android:name=".activity.ListarPreventivosQuatroAnosActivity" />
         <activity android:name=".activity.ListarPreventivosDiarioActivity" />
-        <activity android:name=".activity.ListarPreventivosCondicionaisActivity"></activity>
+        <activity android:name=".activity.ListarPreventivosCondicionaisActivity" />
+        <activity android:name=".activity.ListarPreventivosSemanaisFiltroActivity" />
+        <activity android:name=".activity.ListaSemanaEnchedoraActivity" />
+        <activity android:name=".activity.ListaSemanaSopradoraActivity" />
+        <activity android:name=".activity.TransfCombiActivity" />
+        <activity android:name=".activity.ListaSemanaCapsulaDryActivity" />
+        <activity android:name=".activity.ListaSemanaCapsuladoraActivity" />
+        <activity android:name=".activity.ListaSemanaFimLinhaActivity" />
+        <activity android:name=".activity.ListaSemanaCipActivity" />
+        <activity android:name=".activity.ListaSemanaPaaActivity" />
+        <activity android:name=".activity.ListaSemanaCapdisPredisActivity" />
+        <activity android:name=".activity.ListaSemanaTransporteActivity" />
+        <activity android:name=".activity.ListarPreventivosRealizadosSemanaActivity" />
+        <activity android:name=".activity.VisualizarPreventivosRealizadosActivity"></activity>
     </application>
 
 </manifest>

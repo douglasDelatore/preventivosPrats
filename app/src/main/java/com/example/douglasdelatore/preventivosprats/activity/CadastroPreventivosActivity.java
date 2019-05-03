@@ -31,13 +31,12 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
     private TextView campoDataHoraCadastro;
     private Spinner campoNivel, campoPeriodo, campoOperacao, campoColocacao;
     private Button botaoSalvar;
-    private String idUsuarioLogado;
     private ProgressBar progressBarCadastroPreventivos;
     private String[] items = new String[] {"1", "2", "3", "4", "5"};
     private String[] periodo = new String[] {"Diário","Semanal","Mensal","Bimestral","Trimestral", "Semestral", "Anual", "Dois anos", "Três Anos","Quatro anos", "Condicional"};
     private String[] operacao = new String[] {"Controle","Limpeza","Substituição","Lubrificação"};
     private String[] colocacao = new String[] {"Enchedora", "Sopradora", "Módulo Transferencia Combi",
-                            "Tratamento de cápsulas dry", "Capsuladora", "Fim da linha", "Unidade CIP", "Unidade PAA"};
+                            "Tratamento de cápsulas dry", "Capsuladora", "Fim de linha", "Unidade CIP", "Unidade PAA", "CAPDIS e PREDIS", "Linha de Transporte"};
     private DatabaseReference databaseReference;
 
 
@@ -63,8 +62,6 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                 String procSheet    = campoProcSheet.getText().toString().toUpperCase();
                 String posicao      = campoPosicao.getText().toString();
                 String dataHora     = campoDataHoraCadastro.getText().toString();
-
-
 
                 if (!id.isEmpty()) {
                     if (!componente.isEmpty()) {
@@ -205,7 +202,7 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
             databaseReference = ConfiguracaoFirebase.getFirebase()
                     .child("PreventivoFixo")
                     .child("Sidel")
-                    .child("Fim da linha")
+                    .child("Fim de linha")
                     .child(textoPeriodo)
                     .child(cadastroPreventivos.getId());
         }
@@ -224,6 +221,24 @@ public class CadastroPreventivosActivity extends AppCompatActivity {
                     .child("PreventivoFixo")
                     .child("Sidel")
                     .child("Unidade PAA")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 8) { //Unidade PAA
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("CAPDIS E PREDIS")
+                    .child(textoPeriodo)
+                    .child(cadastroPreventivos.getId());
+        }
+
+        else if (campoColocacao.getSelectedItemPosition() == 9) { //Unidade PAA
+            databaseReference = ConfiguracaoFirebase.getFirebase()
+                    .child("PreventivoFixo")
+                    .child("Sidel")
+                    .child("Linha de Transporte")
                     .child(textoPeriodo)
                     .child(cadastroPreventivos.getId());
         }

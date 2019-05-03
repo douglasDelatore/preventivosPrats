@@ -3,7 +3,9 @@ package com.example.douglasdelatore.preventivosprats.model;
 import com.example.douglasdelatore.preventivosprats.helper.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
-public class Preventivo {
+import java.io.Serializable;
+
+public class Preventivo implements Serializable {
 
     private String id;
     private String idTarefa;
@@ -21,7 +23,7 @@ public class Preventivo {
     public Preventivo() {
 
         DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebase();
-        DatabaseReference preventivoRef = firebaseRef.child("PreventivosFeitos");
+        DatabaseReference preventivoRef = firebaseRef.child("PreventivosRealizados");
         String idPreventivo = preventivoRef.push().getKey();
         setId(idPreventivo);
 

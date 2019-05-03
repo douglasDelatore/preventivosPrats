@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.douglasdelatore.preventivosprats.R;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText campoSenha, campoEmail;
+    private TextView cadastroProvisorio;
     private Button botaoEntrar;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
@@ -30,6 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         verificarUsuarioLogado();
         iniciarComponente();
+
+        cadastroProvisorio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, CadastroActivity.class));
+            }
+        });
 
         botaoEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +105,8 @@ public class LoginActivity extends AppCompatActivity {
         campoEmail  = findViewById(R.id.editTextEmail);
         campoSenha  = findViewById(R.id.editTextSenha);
         botaoEntrar = findViewById(R.id.buttonEntrar);
+
+        cadastroProvisorio = findViewById(R.id.textView14);
 
         campoEmail.requestFocus();
     }

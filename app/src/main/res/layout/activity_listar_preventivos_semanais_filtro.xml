@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".activity.ListarPreventivosSemanaisFiltroActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/buttonSemanaEnchedora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Enchedora" />
+
+            <Button
+                android:id="@+id/buttonSemanaSopradora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Sopradora" />
+
+            <Button
+                android:id="@+id/buttonSemanaTransCombi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Transferência de Combi" />
+
+            <Button
+                android:id="@+id/buttonSemanaCapDry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Capsula de Dry" />
+
+            <Button
+                android:id="@+id/buttonSemanaCapsuladora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Capsuladora" />
+
+            <Button
+                android:id="@+id/buttonSemanaFimLinha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="fim de Linha" />
+
+            <Button
+                android:id="@+id/buttonSemanaCip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="CIP" />
+
+            <Button
+                android:id="@+id/buttonSemanaPAA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="PAA" />
+
+            <Button
+                android:id="@+id/buttonSemanaCapdisPredis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="CAPDIS e PREDIS" />
+
+            <Button
+                android:id="@+id/buttonSemanaTransporte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_botao"
+                android:text="Linha de Transporte" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

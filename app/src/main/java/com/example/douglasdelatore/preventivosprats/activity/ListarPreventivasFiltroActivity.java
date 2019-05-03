@@ -31,7 +31,7 @@ public class ListarPreventivasFiltroActivity extends AppCompatActivity {
         botaoSemanal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ListarPreventivasFiltroActivity.this, ListarPreventivosSemanaisActivity.class));
+                startActivity(new Intent(ListarPreventivasFiltroActivity.this, ListarPreventivosSemanaisFiltroActivity.class));
             }
         });
 
