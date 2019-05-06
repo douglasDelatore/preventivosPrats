@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textListaTarefaRealizada"
+            android:id="@+id/textListaTarefaAFazer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -19,7 +19,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textListaPeriodoRealizada"
+            android:id="@+id/textListaPeriodoAFazer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -27,28 +27,15 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textListaProcedimentoRealizada"
+        android:id="@+id/textListaProcedimentoAFazer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Procedimento" />
 
     <TextView
-        android:id="@+id/textViewListaPosicaoRealizada"
+        android:id="@+id/textViewListaPosicaoAFazer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Posicao" />
-
-    <TextView
-        android:id="@+id/textViewListaDataHoraPreventivaRealizada"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Data e Hora" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="_________________________________________________________________________________________"
-        android:textAlignment="center" />
 
 </LinearLayout>

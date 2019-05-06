@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context=".activity.RelPreventivasRealizadasActivity"
     tools:layout_editor_absoluteY="25dp">
+
+    <TextView
+        android:id="@+id/textViewTituloRelatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Relatório"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewTotalRelatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pierChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></com.github.mikephil.charting.charts.PieChart>
 
-
-</RelativeLayout>
+</LinearLayout>

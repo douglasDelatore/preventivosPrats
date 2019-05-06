@@ -76,7 +76,9 @@
         <activity android:name=".activity.ListaSemanaCapdisPredisActivity" />
         <activity android:name=".activity.ListaSemanaTransporteActivity" />
         <activity android:name=".activity.ListarPreventivosRealizadosSemanaActivity" />
-        <activity android:name=".activity.VisualizarPreventivosRealizadosActivity"></activity>
+        <activity android:name=".activity.VisualizarPreventivosRealizadosActivity" />
+        <activity android:name=".activity.PreventivosAFazerActivity" />
+        <activity android:name=".activity.ListarPreventivosAFazerActivity"></activity>
     </application>
 
 </manifest>

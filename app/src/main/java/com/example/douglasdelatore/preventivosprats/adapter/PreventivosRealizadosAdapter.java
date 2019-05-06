@@ -26,15 +26,15 @@ public class PreventivosRealizadosAdapter extends RecyclerView.Adapter<Preventiv
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
         View itemLista = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.preventivos_realizados_adapter, viewGroup, false);
         return new MyViewHolder(itemLista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
 
-        Preventivo preventivo = preventivos.get(i);
+        Preventivo preventivo = preventivos.get(position);
 
         myViewHolder.tarefa.setText(preventivo.getTarefa());
         myViewHolder.periodo.setText(preventivo.getPeriodo());

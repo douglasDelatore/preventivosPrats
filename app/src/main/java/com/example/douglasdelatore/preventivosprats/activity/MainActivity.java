@@ -98,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
-
         easterEgg();
     }
 
@@ -140,13 +139,10 @@ public class MainActivity extends AppCompatActivity {
         idUsuarioLogado             = UsuarioFirebase.getIdentificadorUsuario();
         campoNomeUsuario.setText(verificaNome);
 
-
-
         botaoRelatorio.setVisibility(View.GONE);
-        //botaoCadastrarUsuario.setVisibility(View.GONE);
-        botaoCadastrarPreventivos.setVisibility(View.GONE);
+        botaoCadastrarUsuario.setVisibility(View.GONE);
+        //botaoCadastrarPreventivos.setVisibility(View.GONE);
         botaoChecklist.setVisibility(View.GONE);
-
 
     }
 }

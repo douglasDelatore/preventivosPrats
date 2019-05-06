@@ -108,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
 
         cadastroProvisorio = findViewById(R.id.textView14);
 
+        cadastroProvisorio.setVisibility(View.GONE);
+
         campoEmail.requestFocus();
     }
 }
